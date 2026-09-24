@@ -5,22 +5,13 @@
 [![CI](https://github.com/benzjeremy/spotify-screensaver/actions/workflows/ci.yml/badge.svg)](https://github.com/benzjeremy/spotify-screensaver/actions)
 [![Coverage](https://codecov.io/gh/benzjeremy/spotify-screensaver/branch/main/graph/badge.svg)](https://app.codecov.io/gh/benzjeremy/spotify-screensaver)
 [![Awesome Go](https://awesome.re/mentioned-badge.svg)](https://github.com/avelino/awesome-go)
-[![Release](https://img.shields.io/badge/Release-v1.4%20[Pre--Release]-emerald)](https://github.com/benzjeremy/spotify-screensaver/releases/latest)
+[![Release](https://img.shields.io/github/v/release/benzjeremy/spotify-screensaver)](https://github.com/benzjeremy/spotify-screensaver/releases/latest)
 [![Status: Pre-Release](https://img.shields.io/badge/Status-Pre--Release%20%2F%20WIP-orange.svg)](https://github.com/benzjeremy/spotify-screensaver)
 [![License: GPL-3.0](https://img.shields.io/badge/License-GPL--3.0-blue.svg)](LICENSE)
 [![Platform](https://img.shields.io/badge/Platform-Linux%20%7C%20Windows-lightgrey.svg)]()
 [![Security: AES-256-GCM](https://img.shields.io/badge/Security-AES--256--GCM-success.svg)](https://en.wikipedia.org/wiki/Galois/Counter_Mode)
 
-
-> [!IMPORTANT]
-> ### 🔒 Primary Codebase & Active Development Moved to Self-Hosted Gitea
-> **For privacy optimization and sovereign self-hosted infrastructure, the primary development, source code, and releases of this project have permanently migrated to our self-hosted Gitea platform:**  
-> 👉 **[Gitea Repository: https://pi5.darter-basking.ts.net/gitea/spotify-screensaver/spotify-screensaver](https://pi5.darter-basking.ts.net/gitea/spotify-screensaver/spotify-screensaver)**  
-> 👉 **[Official Web Showcase: https://pi5.darter-basking.ts.net/spotify-screensaver/](https://pi5.darter-basking.ts.net/spotify-screensaver/)**
-> 
-> *This GitHub repository serves solely as a read-only mirror for Go toolchain compatibility (`go install`, `pkg.go.dev`, `awesome-go`). All active development, issues, and releases take place on Gitea.*
-
----
+> 🌐 **Official Website:** [https://pi5.darter-basking.ts.net/spotify-screensaver/](https://pi5.darter-basking.ts.net/spotify-screensaver/)
 
 > [!IMPORTANT]
 > ### 🚧 Pre-Release / Active Development Notice
@@ -92,27 +83,35 @@
 
 ## 🚀 Installation & Usage
 
-### 1. Build from Source (Linux with WebKitGTK)
+### 1. Download Precompiled Binaries (Recommended)
+
+Download the matching binary from the [Releases page (Latest)](https://github.com/benzjeremy/spotify-screensaver/releases/latest):
+
+- **Linux (AMD64):** Download `spotify-screensaver-*-linux-amd64.tar.gz`, extract, and execute `./spotify-screensaver`.
+- **Windows (AMD64):** Download `spotify-screensaver-*-windows-amd64.zip`, extract, and run `spotify-screensaver.exe`.
+
+### 2. Build from Source (Linux with WebKitGTK)
 
 ```bash
-cd ~/Projekte/benzjeremy.github.io/spotify-screensaver
+git clone https://github.com/benzjeremy/spotify-screensaver.git
+cd spotify-screensaver
 go build -o spotify-screensaver .
 ./spotify-screensaver
 ```
 
-### 2. Run in Fullscreen Screensaver Mode
+### 3. Run in Fullscreen Screensaver Mode
 
 ```bash
 ./spotify-screensaver -fullscreen
 ```
 
-### 3. Run in Default Browser Mode
+### 4. Run in Default Browser Mode
 
 ```bash
 ./spotify-screensaver -browser
 ```
 
-### 4. Cross-Compile for Windows
+### 5. Cross-Compile for Windows
 
 ```bash
 CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build -o bin/spotify-screensaver-windows-amd64.exe .
@@ -122,5 +121,5 @@ CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build -o bin/spotify-screensaver-wind
 
 ## ⚖️ License & Author
 
-- **Developer:** Jeremy Benz ([@benzjeremy](https://github.com/benzjeremy)) · [benzjeremy.github.io](https://benzjeremy.github.io/)
+- **Developer:** Jeremy Benz ([@benzjeremy](https://github.com/benzjeremy))
 - **License:** [GNU General Public License v3.0 (GPL-3.0)](LICENSE)
