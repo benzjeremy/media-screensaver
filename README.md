@@ -11,8 +11,8 @@
 [![Platform](https://img.shields.io/badge/Platform-Linux%20%7C%20Windows-lightgrey.svg)]()
 [![Security: AES-256-GCM](https://img.shields.io/badge/Security-AES--256--GCM-success.svg)](https://en.wikipedia.org/wiki/Galois/Counter_Mode)
 
-> 🌐 **Official Website:** [https://pi5.darter-basking.ts.net/spotify-screensaver/](https://pi5.darter-basking.ts.net/spotify-screensaver/)
-> 📖 **Official Wiki & Documentation:** [https://pi5.darter-basking.ts.net/spotify-screensaver/wiki/](https://pi5.darter-basking.ts.net/spotify-screensaver/wiki/)
+> 🌐 **Official Website:** [https://spotify.darter-basking.ts.net/](https://spotify.darter-basking.ts.net/)
+> 📖 **Official Wiki & Documentation:** [https://spotify.darter-basking.ts.net/wiki/](https://spotify.darter-basking.ts.net/wiki/)
 
 > [!IMPORTANT]
 > ### 🚧 Pre-Release / Active Development Notice
@@ -123,13 +123,13 @@ CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build -o bin/spotify-screensaver-wind
 ## 📚 Wiki & Documentation
 
 Detailed documentation, shortcuts, and audio visualizer guides are available in our official web wiki:  
-👉 **[Spotify Screensaver Wiki: https://pi5.darter-basking.ts.net/spotify-screensaver/wiki/](https://pi5.darter-basking.ts.net/spotify-screensaver/wiki/)**
+👉 **[Spotify Screensaver Wiki: https://spotify.darter-basking.ts.net/wiki/](https://spotify.darter-basking.ts.net/wiki/)**
 
-- **MPRIS D-Bus Architecture**: [Zero-Config Setup](https://pi5.darter-basking.ts.net/spotify-screensaver/wiki/#mpris)
-- **Audio Visualizer Modes**: [FFT Spectrum Analysis](https://pi5.darter-basking.ts.net/spotify-screensaver/wiki/#visualizer)
-- **Installation & Daemon**: [Linux & Windows](https://pi5.darter-basking.ts.net/spotify-screensaver/wiki/#installation)
-- **Keyboard Shortcuts**: [Quick Controls](https://pi5.darter-basking.ts.net/spotify-screensaver/wiki/#shortcuts)
-- **Troubleshooting**: [WebKitGTK Performance & DMABUF](https://pi5.darter-basking.ts.net/spotify-screensaver/wiki/#security)
+- **MPRIS D-Bus Architecture**: [Zero-Config Setup](https://spotify.darter-basking.ts.net/wiki/#mpris)
+- **Audio Visualizer Modes**: [FFT Spectrum Analysis](https://spotify.darter-basking.ts.net/wiki/#visualizer)
+- **Installation & Daemon**: [Linux & Windows](https://spotify.darter-basking.ts.net/wiki/#installation)
+- **Keyboard Shortcuts**: [Quick Controls](https://spotify.darter-basking.ts.net/wiki/#shortcuts)
+- **Troubleshooting**: [WebKitGTK Performance & DMABUF](https://spotify.darter-basking.ts.net/wiki/#security)
 
 ---
 
