@@ -1,4 +1,4 @@
-module github.com/benzjeremy/spotify-screensaver
+module github.com/benzjeremy/media-screensaver
 
 go 1.27.0
 

@@ -10,14 +10,14 @@ import (
 	"os/signal"
 	"syscall"
 
-	"github.com/benzjeremy/spotify-screensaver/audio"
-	"github.com/benzjeremy/spotify-screensaver/daemon"
-	"github.com/benzjeremy/spotify-screensaver/server"
-	"github.com/benzjeremy/spotify-screensaver/spotify"
-	"github.com/benzjeremy/spotify-screensaver/store"
+	"github.com/benzjeremy/media-screensaver/audio"
+	"github.com/benzjeremy/media-screensaver/daemon"
+	"github.com/benzjeremy/media-screensaver/server"
+	"github.com/benzjeremy/media-screensaver/spotify"
+	"github.com/benzjeremy/media-screensaver/store"
 )
 
-const Version = "v1.4"
+const Version = "v1.5"
 
 //go:embed assets/*
 var embeddedAssets embed.FS
@@ -31,13 +31,13 @@ func main() {
 	flag.Parse()
 
 	if *versionFlag {
-		fmt.Printf("Spotify Screensaver %s by Jeremy Benz\n", Version)
+		fmt.Printf("Media Screensaver %s by Jeremy Benz\n", Version)
 		return
 	}
 
-	log.Printf("🌌 Spotify Screensaver %s startet...\n", Version)
+	log.Printf("🌌 Media Screensaver %s startet...\n", Version)
 
-	// 1. Initialisiere sicheren, verschlüsselten Secrets-Speicher (AES-256-GCM, PBKDF2 100k)
+	// Initialize encrypted local storage with AES-256-GCM and PBKDF2 (1,000,000 rounds).
 	secStore, err := store.NewSecureStore()
 	if err != nil {
 		log.Fatalf("[Sicherheit] Fehler beim Initialisieren des SecureStore: %v\n", err)
@@ -80,7 +80,7 @@ func main() {
 	signal.Notify(sigChan, os.Interrupt, syscall.SIGTERM)
 	go func() {
 		<-sigChan
-		log.Println("\n[Shutdown] Beende Spotify Screensaver sauber...")
+		log.Println("\n[Shutdown] Beende Media Screensaver sauber...")
 		if idleMon != nil {
 			idleMon.Stop()
 		}
@@ -92,8 +92,8 @@ func main() {
 	// 8. Starte Benutzeroberfläche
 	if *browserFlag {
 		log.Printf("[GUI] Starte im Browser-Modus: %s\n", appURL)
-		LaunchGUI("Spotify Screensaver", appURL, 1200, 800, false)
+		LaunchGUI("Media Screensaver", appURL, 1200, 800, false)
 	} else {
-		LaunchGUI("Spotify Screensaver", appURL, 1200, 800, *fullscreenFlag)
+		LaunchGUI("Media Screensaver", appURL, 1200, 800, *fullscreenFlag)
 	}
 }

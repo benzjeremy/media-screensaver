@@ -10,8 +10,8 @@ import (
 	"sync"
 	"time"
 
-	"github.com/benzjeremy/spotify-screensaver/palette"
-	"github.com/benzjeremy/spotify-screensaver/store"
+	"github.com/benzjeremy/media-screensaver/palette"
+	"github.com/benzjeremy/media-screensaver/store"
 )
 
 type Controller struct {

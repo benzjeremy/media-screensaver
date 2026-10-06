@@ -8,7 +8,7 @@ import (
 )
 
 func LaunchGUI(title, url string, width, height int, fullscreen bool) {
-	log.Println("[GUI] Starte Spotify Screensaver im App-Modus unter Windows...")
+	log.Println("[GUI] Starte Media Screensaver im App-Modus unter Windows...")
 	commands := [][]string{
 		{"msedge.exe", "--app=" + url},
 		{"chrome.exe", "--app=" + url},

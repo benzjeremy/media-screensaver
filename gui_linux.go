@@ -56,8 +56,8 @@ static void set_window_icon_from_memory(GtkWindow *window, const void *buf, gsiz
         }
         g_object_unref(loader);
     }
-    gtk_window_set_default_icon_name("spotify-screensaver");
-    gtk_window_set_icon_name(window, "spotify-screensaver");
+    gtk_window_set_default_icon_name("media-screensaver");
+    gtk_window_set_icon_name(window, "media-screensaver");
 }
 
 static void run_gtk_screensaver(const char *title, const char *url, int width, int height, int fullscreen, const void *icon_buf, int icon_len) {
@@ -67,8 +67,8 @@ static void run_gtk_screensaver(const char *title, const char *url, int width, i
         return;
     }
 
-    g_set_prgname("spotify-screensaver");
-    g_set_application_name("Spotify Screensaver");
+    g_set_prgname("media-screensaver");
+    g_set_application_name("Media Screensaver");
 
     GtkWidget *window = gtk_window_new(GTK_WINDOW_TOPLEVEL);
     gtk_window_set_title(GTK_WINDOW(window), title);
@@ -143,25 +143,25 @@ func installDesktopIntegration() {
 
 	iconPng, _ := embeddedAssets.ReadFile("assets/icon.png")
 	if len(iconPng) > 0 {
-		_ = os.WriteFile(filepath.Join(iconDir, "spotify-screensaver.png"), iconPng, 0644)
-		_ = os.WriteFile(filepath.Join(pixmapDir, "spotify-screensaver.png"), iconPng, 0644)
+		_ = os.WriteFile(filepath.Join(iconDir, "media-screensaver.png"), iconPng, 0644)
+		_ = os.WriteFile(filepath.Join(pixmapDir, "media-screensaver.png"), iconPng, 0644)
 	}
 
-	desktopPath := filepath.Join(appDir, "spotify-screensaver.desktop")
+	desktopPath := filepath.Join(appDir, "media-screensaver.desktop")
 	execPath, _ := os.Executable()
 	if execPath == "" {
-		execPath = "spotify-screensaver"
+		execPath = "media-screensaver"
 	}
 	content := fmt.Sprintf(`[Desktop Entry]
-Name=Spotify Screensaver
+Name=Media Screensaver
 Comment=Real-Time Ambient Canvas & Audio Visualizer
 Exec=%s
-Icon=spotify-screensaver
+Icon=media-screensaver
 Terminal=false
 Type=Application
 Categories=AudioVideo;Audio;Screensaver;
-StartupWMClass=spotify-screensaver
-X-Wayland-AppID=spotify-screensaver
+StartupWMClass=media-screensaver
+X-Wayland-AppID=media-screensaver
 `, execPath)
 	_ = os.WriteFile(desktopPath, []byte(content), 0644)
 }

@@ -55,7 +55,7 @@ func (e *Extractor) ExtractFromURL(url string) (ExtractedColors, error) {
 	if err != nil {
 		return ExtractedColors{Primary: "#1db954", Secondary: "#121212"}, err
 	}
-	req.Header.Set("User-Agent", "SpotifyScreensaver/1.3")
+	req.Header.Set("User-Agent", "MediaScreensaver/1.5")
 
 	resp, err := e.httpClient.Do(req)
 	if err != nil {

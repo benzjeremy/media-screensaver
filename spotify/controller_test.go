@@ -3,10 +3,12 @@ package spotify
 import (
 	"testing"
 
-	"github.com/benzjeremy/spotify-screensaver/store"
+	"github.com/benzjeremy/media-screensaver/store"
 )
 
 func TestControllerStateAndColors(t *testing.T) {
+	t.Setenv("PATH", t.TempDir())
+	t.Setenv("HOME", t.TempDir())
 	secStore, err := store.NewSecureStore()
 	if err != nil {
 		t.Fatalf("Failed to create secure store: %v", err)
@@ -28,13 +30,13 @@ func TestControllerStateAndColors(t *testing.T) {
 
 func TestDetectAdvertisement(t *testing.T) {
 	tests := []struct {
-		name       string
-		title      string
-		artist     string
-		album      string
-		trackID    string
-		wantAd     bool
-		wantTitle  string
+		name      string
+		title     string
+		artist    string
+		album     string
+		trackID   string
+		wantAd    bool
+		wantTitle string
 	}{
 		{
 			name:      "Normal track",
@@ -106,6 +108,7 @@ func TestDetectAdvertisement(t *testing.T) {
 }
 
 func TestAdEnrichColors(t *testing.T) {
+	t.Setenv("HOME", t.TempDir())
 	secStore, err := store.NewSecureStore()
 	if err != nil {
 		t.Fatalf("Failed to create secure store: %v", err)

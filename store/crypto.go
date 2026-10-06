@@ -19,7 +19,7 @@ import (
 )
 
 const (
-	pbkdf2Iterations = 100000
+	pbkdf2Iterations = 1000000
 	keyLen           = 32 // 256-bit AES
 	saltLen          = 32 // 256-bit Salt
 )
@@ -43,6 +43,7 @@ type SecureStore struct {
 	saltPath  string
 	storePath string
 	key       []byte
+	legacyKey []byte
 }
 
 func NewSecureStore() (*SecureStore, error) {
@@ -72,6 +73,7 @@ func NewSecureStore() (*SecureStore, error) {
 		saltPath:  saltPath,
 		storePath: storePath,
 		key:       derivedKey,
+		legacyKey: pbkdf2.Key([]byte(passphrase), salt, 100000, keyLen, sha256.New),
 	}, nil
 }
 
@@ -151,6 +153,15 @@ func (s *SecureStore) Decrypt(ciphertext []byte) ([]byte, error) {
 	nonce, actualCiphertext := ciphertext[:nonceSize], ciphertext[nonceSize:]
 	plaintext, err := gcm.Open(nil, nonce, actualCiphertext, nil)
 	if err != nil {
+		legacyBlock, legacyErr := aes.NewCipher(s.legacyKey)
+		if legacyErr == nil {
+			legacyGCM, legacyErr := cipher.NewGCM(legacyBlock)
+			if legacyErr == nil {
+				if plain, legacyErr := legacyGCM.Open(nil, nonce, actualCiphertext, nil); legacyErr == nil {
+					return plain, nil
+				}
+			}
+		}
 		return nil, fmt.Errorf("decryption authentication failed: %w", err)
 	}
 

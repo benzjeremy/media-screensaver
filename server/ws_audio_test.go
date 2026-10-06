@@ -4,7 +4,7 @@ import (
 	"bytes"
 	"testing"
 
-	"github.com/benzjeremy/spotify-screensaver/audio"
+	"github.com/benzjeremy/media-screensaver/audio"
 )
 
 func TestEncodeWSBinaryFrame(t *testing.T) {

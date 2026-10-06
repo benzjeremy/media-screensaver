@@ -10,11 +10,10 @@ import (
 	"net/http"
 	"strings"
 	"sync"
-	"time"
 
-	"github.com/benzjeremy/spotify-screensaver/audio"
-	"github.com/benzjeremy/spotify-screensaver/spotify"
-	"github.com/benzjeremy/spotify-screensaver/store"
+	"github.com/benzjeremy/media-screensaver/audio"
+	"github.com/benzjeremy/media-screensaver/spotify"
+	"github.com/benzjeremy/media-screensaver/store"
 )
 
 type Server struct {
@@ -31,9 +30,9 @@ type Server struct {
 }
 
 func generateSessionToken() string {
-	b := make([]byte, 16)
+	b := make([]byte, 32)
 	if _, err := rand.Read(b); err != nil {
-		return fmt.Sprintf("%x", time.Now().UnixNano())
+		panic("secure session token generation failed: " + err.Error())
 	}
 	return hex.EncodeToString(b)
 }
@@ -232,10 +231,10 @@ func (s *Server) handleConfig(w http.ResponseWriter, r *http.Request) {
 		}
 		publicCfg := map[string]interface{}{
 			"clock_format_24h": cfg.ClockFormat24H,
-			"show_seconds":    cfg.ShowSeconds,
-			"visualizer_mode": cfg.VisualizerMode,
-			"theme_accent":    cfg.ThemeAccent,
-			"sensitivity":     cfg.Sensitivity,
+			"show_seconds":     cfg.ShowSeconds,
+			"visualizer_mode":  cfg.VisualizerMode,
+			"theme_accent":     cfg.ThemeAccent,
+			"sensitivity":      cfg.Sensitivity,
 		}
 		w.Header().Set("Content-Type", "application/json")
 		json.NewEncoder(w).Encode(publicCfg)

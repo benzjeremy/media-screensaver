@@ -1,7 +1,7 @@
 # Binaries
 bin/
-spotify-screensaver
-spotify-screensaver.exe
+media-screensaver
+media-screensaver.exe
 *.exe
 *.dll
 *.so

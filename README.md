@@ -1,18 +1,18 @@
-# 🌌 Spotify Screensaver
+# 🌌 Media Screensaver
 
-[![Go Reference](https://pkg.go.dev/badge/github.com/benzjeremy/spotify-screensaver.svg)](https://pkg.go.dev/github.com/benzjeremy/spotify-screensaver)
-[![Go Report Card](https://goreportcard.com/badge/github.com/benzjeremy/spotify-screensaver.svg)](https://goreportcard.com/report/github.com/benzjeremy/spotify-screensaver)
-[![CI](https://github.com/benzjeremy/spotify-screensaver/actions/workflows/ci.yml/badge.svg)](https://github.com/benzjeremy/spotify-screensaver/actions)
-[![Coverage](https://codecov.io/gh/benzjeremy/spotify-screensaver/branch/main/graph/badge.svg)](https://app.codecov.io/gh/benzjeremy/spotify-screensaver)
+[![Go Reference](https://pkg.go.dev/badge/github.com/benzjeremy/media-screensaver.svg)](https://pkg.go.dev/github.com/benzjeremy/media-screensaver)
+[![Go Report Card](https://goreportcard.com/badge/github.com/benzjeremy/media-screensaver.svg)](https://goreportcard.com/report/github.com/benzjeremy/media-screensaver)
+[![CI](https://github.com/benzjeremy/media-screensaver/actions/workflows/ci_arch.yml/badge.svg)](https://github.com/benzjeremy/media-screensaver/actions)
+[![Coverage](https://codecov.io/gh/benzjeremy/media-screensaver/branch/main/graph/badge.svg)](https://app.codecov.io/gh/benzjeremy/media-screensaver)
 [![Awesome Go](https://awesome.re/mentioned-badge.svg)](https://github.com/avelino/awesome-go)
-[![Release](https://img.shields.io/github/v/release/benzjeremy/spotify-screensaver)](https://github.com/benzjeremy/spotify-screensaver/releases/latest)
-[![Status: Pre-Release](https://img.shields.io/badge/Status-Pre--Release%20%2F%20WIP-orange.svg)](https://github.com/benzjeremy/spotify-screensaver)
+[![Release](https://img.shields.io/github/v/release/benzjeremy/media-screensaver)](https://github.com/benzjeremy/media-screensaver/releases)
+[![Status: Pre-Release](https://img.shields.io/badge/Status-Pre--Release%20%2F%20WIP-orange.svg)](https://github.com/benzjeremy/media-screensaver)
 [![License: GPL-3.0](https://img.shields.io/badge/License-GPL--3.0-blue.svg)](LICENSE)
 [![Platform](https://img.shields.io/badge/Platform-Linux%20%7C%20Windows-lightgrey.svg)]()
 [![Security: AES-256-GCM](https://img.shields.io/badge/Security-AES--256--GCM-success.svg)](https://en.wikipedia.org/wiki/Galois/Counter_Mode)
 
-> 🌐 **Official Website:** [https://spotify-screensaver.benzjeremy.pp.ua/](https://spotify-screensaver.benzjeremy.pp.ua/)
-> 📖 **Official Wiki & Documentation:** [https://spotify-screensaver.benzjeremy.pp.ua/wiki/](https://spotify-screensaver.benzjeremy.pp.ua/wiki/)
+> 🌐 **Official Website:** [https://media-screensaver.benzjeremy.pp.ua/](https://media-screensaver.benzjeremy.pp.ua/)
+> 📖 **Official Wiki & Documentation:** [https://media-screensaver.benzjeremy.pp.ua/wiki/](https://media-screensaver.benzjeremy.pp.ua/wiki/)
 
 > [!IMPORTANT]
 > ### 🚧 Pre-Release / Active Development Notice
@@ -61,7 +61,7 @@
   - Automatically detects Spotify Desktop and `spotify_player` on Linux over D-Bus without requiring API keys.
   - Smooth standby demo mode when Spotify is paused or closed.
 - 🛡️ **Strict Security Architecture (Jeremy Benz Standards):**
-  - **Cryptography:** AES-256-GCM token encryption derived via PBKDF2 (100,000 rounds, hardware fingerprint, unique salt stored in `~/.config/spotify-screensaver/salt.bin`).
+  - **Cryptography:** AES-256-GCM token encryption derived via PBKDF2 (1,000,000 rounds, hardware fingerprint, unique salt stored in `~/.config/spotify-screensaver/salt.bin`).
   - **Network Isolation:** Local HTTP server binds strictly to `127.0.0.1:43210`.
   - **Anti-DNS-Rebinding & Anti-CSRF:** Strict validation of `Host` and `Origin` headers.
   - **Security Headers:** `X-Frame-Options: DENY`, `X-Content-Type-Options: nosniff`, `Referrer-Policy: no-referrer`, strict CSP.
@@ -86,36 +86,36 @@
 
 ### 1. Download Precompiled Binaries (Recommended)
 
-Download the matching binary from the [Releases page (Latest)](https://github.com/benzjeremy/spotify-screensaver/releases/latest):
+Download the matching binary from the [Releases page (Latest)](https://github.com/benzjeremy/media-screensaver/releases):
 
-- **Linux (AMD64):** Download `spotify-screensaver-*-linux-amd64.tar.gz`, extract, and execute `./spotify-screensaver`.
-- **Windows (AMD64):** Download `spotify-screensaver-*-windows-amd64.zip`, extract, and run `spotify-screensaver.exe`.
+- **Linux (AMD64):** Download `media-screensaver-*-linux-amd64.tar.gz`, extract, and execute `./media-screensaver`.
+- **Windows (AMD64):** Download `media-screensaver-*-windows-amd64.zip`, extract, and run `media-screensaver.exe`.
 
 ### 2. Build from Source (Linux with WebKitGTK)
 
 ```bash
-git clone https://github.com/benzjeremy/spotify-screensaver.git
-cd spotify-screensaver
-go build -o spotify-screensaver .
-./spotify-screensaver
+git clone https://github.com/benzjeremy/media-screensaver.git
+cd media-screensaver
+go build -o media-screensaver .
+./media-screensaver
 ```
 
 ### 3. Run in Fullscreen Screensaver Mode
 
 ```bash
-./spotify-screensaver -fullscreen
+./media-screensaver -fullscreen
 ```
 
 ### 4. Run in Default Browser Mode
 
 ```bash
-./spotify-screensaver -browser
+./media-screensaver -browser
 ```
 
 ### 5. Cross-Compile for Windows
 
 ```bash
-CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build -o bin/spotify-screensaver-windows-amd64.exe .
+CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build -o bin/media-screensaver-windows-amd64.exe .
 ```
 
 ---
@@ -123,13 +123,13 @@ CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build -o bin/spotify-screensaver-wind
 ## 📚 Wiki & Documentation
 
 Detailed documentation, shortcuts, and audio visualizer guides are available in our official web wiki:  
-👉 **[Spotify Screensaver Wiki: https://spotify-screensaver.benzjeremy.pp.ua/wiki/](https://spotify-screensaver.benzjeremy.pp.ua/wiki/)**
+👉 **[Media Screensaver Wiki: https://media-screensaver.benzjeremy.pp.ua/wiki/](https://media-screensaver.benzjeremy.pp.ua/wiki/)**
 
-- **MPRIS D-Bus Architecture**: [Zero-Config Setup](https://spotify-screensaver.benzjeremy.pp.ua/wiki/#mpris)
-- **Audio Visualizer Modes**: [FFT Spectrum Analysis](https://spotify-screensaver.benzjeremy.pp.ua/wiki/#visualizer)
-- **Installation & Daemon**: [Linux & Windows](https://spotify-screensaver.benzjeremy.pp.ua/wiki/#installation)
-- **Keyboard Shortcuts**: [Quick Controls](https://spotify-screensaver.benzjeremy.pp.ua/wiki/#shortcuts)
-- **Troubleshooting**: [WebKitGTK Performance & DMABUF](https://spotify-screensaver.benzjeremy.pp.ua/wiki/#security)
+- **MPRIS D-Bus Architecture**: [Zero-Config Setup](https://media-screensaver.benzjeremy.pp.ua/wiki/#mpris)
+- **Audio Visualizer Modes**: [FFT Spectrum Analysis](https://media-screensaver.benzjeremy.pp.ua/wiki/#visualizer)
+- **Installation & Daemon**: [Linux & Windows](https://media-screensaver.benzjeremy.pp.ua/wiki/#installation)
+- **Keyboard Shortcuts**: [Quick Controls](https://media-screensaver.benzjeremy.pp.ua/wiki/#shortcuts)
+- **Troubleshooting**: [WebKitGTK Performance & DMABUF](https://media-screensaver.benzjeremy.pp.ua/wiki/#security)
 
 ---
 
@@ -137,3 +137,15 @@ Detailed documentation, shortcuts, and audio visualizer guides are available in 
 
 - **Developer:** Jeremy Benz ([@benzjeremy](https://github.com/benzjeremy))
 - **License:** [GNU General Public License v3.0 (GPL-3.0)](LICENSE)
+
+## Project rename
+
+Spotify Screensaver is now **Media Screensaver**. This project remains in development (pre-release). Existing local data continues to use the legacy storage directory for compatibility.
+
+## A personal note from Jeremy Benz
+
+> I decided we needed to rename Spotify Screensaver to media-screensaver to avoid potential intellectual-property and trademark issues. The previous name directly referenced Spotify AB's brand. I wanted to make this change early, before it could lead to legal trouble. Same project, new name — thank you for sticking with it.
+>
+> — Jeremy Benz, project creator
+
+Windows icon resource: regenerate `app_windows_amd64.syso` after icon changes with `x86_64-w64-mingw32-windres app.rc -O coff -o app_windows_amd64.syso`.

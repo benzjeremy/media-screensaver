@@ -6,12 +6,13 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/benzjeremy/spotify-screensaver/audio"
-	"github.com/benzjeremy/spotify-screensaver/spotify"
-	"github.com/benzjeremy/spotify-screensaver/store"
+	"github.com/benzjeremy/media-screensaver/audio"
+	"github.com/benzjeremy/media-screensaver/spotify"
+	"github.com/benzjeremy/media-screensaver/store"
 )
 
 func TestSecurityMiddlewareAntiDNSRebinding(t *testing.T) {
+	t.Setenv("HOME", t.TempDir())
 	secStore, err := store.NewSecureStore()
 	if err != nil {
 		t.Fatalf("NewSecureStore error: %v", err)
@@ -58,6 +59,7 @@ func TestSecurityMiddlewareAntiDNSRebinding(t *testing.T) {
 }
 
 func TestSecurityMiddlewareTokenAuth(t *testing.T) {
+	t.Setenv("HOME", t.TempDir())
 	secStore, err := store.NewSecureStore()
 	if err != nil {
 		t.Fatalf("NewSecureStore error: %v", err)
