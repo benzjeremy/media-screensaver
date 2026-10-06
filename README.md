@@ -23,7 +23,7 @@
 
 ---
 
-## ✨ Features & Highlights in v1.4
+## ✨ Features & Highlights in v1.5
 
 - 📢 **Intelligent Ad Detection & Handling (Spotify Free):**
   - Detects advertisements via MPRIS track IDs (`:ad:`), metadata, and API payloads.
@@ -140,7 +140,7 @@ Detailed documentation, shortcuts, and audio visualizer guides are available in 
 
 ## Project rename
 
-Spotify Screensaver is now **Media Screensaver**. This project remains in development (pre-release). Existing local data continues to use the legacy storage directory for compatibility.
+**Media Screensaver v1.5** is the current pre-release. Existing local data continues to use the legacy `spotify-screensaver` storage directory for compatibility.
 
 ## A personal note from Jeremy Benz
 
