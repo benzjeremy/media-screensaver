@@ -10,6 +10,7 @@ import (
 	"net/http"
 	"strings"
 	"sync"
+	"time"
 
 	"github.com/benzjeremy/media-screensaver/audio"
 	"github.com/benzjeremy/media-screensaver/spotify"
@@ -92,7 +93,9 @@ func (s *Server) Start() (string, error) {
 	handler := s.securityMiddleware(mux)
 
 	s.httpServer = &http.Server{
-		Handler: handler,
+		Handler:           handler,
+		ReadHeaderTimeout: 5 * time.Second,
+		IdleTimeout:       90 * time.Second,
 	}
 
 	go s.httpServer.Serve(listener)

@@ -633,3 +633,6 @@ body.hide-cursor {
 .hidden {
   display: none !important;
 }
+
+:where(button,a,input,select):focus-visible { outline: 3px solid #efbe66; outline-offset: 3px; }
+@media (pointer: coarse) { button, select { min-height: 44px; } }

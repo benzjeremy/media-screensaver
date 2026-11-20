@@ -17,7 +17,7 @@ import (
 	"github.com/benzjeremy/media-screensaver/store"
 )
 
-const Version = "v1.5"
+const Version = "v1.6"
 
 //go:embed assets/*
 var embeddedAssets embed.FS
